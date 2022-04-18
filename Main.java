@@ -11,14 +11,14 @@ public class Main {
         setLookAndFeel();
         JFrame frame= new JFrame("JARPG");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JLabel label=new JLabel("Hallo");
-        frame.getContentPane().add(label);
-        frame.setSize(600,600);
+        frame.setSize(620,645);
+
         frame.setMinimumSize(frame.getSize());
         frame.setMaximumSize(frame.getSize());
         frame.setResizable(false);
-        frame.pack();
+        frame.add(new GUI());
         frame.add(new Player(0,0));
+        frame.pack();
         frame.setVisible(true);
 
         /*while(x!=6){

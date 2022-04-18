@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Tile extends JComponent {
+public class Tile extends GUI {
     private Graphics g;
 
     //Empty Constructor
@@ -9,6 +9,7 @@ public class Tile extends JComponent {
     }
     @Override
     public void paintComponent(Graphics g){
+        super.paintComponent(g);
     }
 
     public void draw(Graphics g){

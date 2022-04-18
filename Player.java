@@ -14,16 +14,15 @@ public class Player extends Tile{
     }
     @Override
     public void paintComponent(Graphics g){
+        super.paintComponent(g);
         Timer Timur=new Timer();
         TimerTask tib=new Helper();
-        g.setColor(Color.BLACK);
-        g.fillRect(0, 0, 600, 600);
         if(BlackorWhite){
             g.setColor(Color.WHITE);
-            g.fillRect(x*140+100,y*140+100,40,40);
+            g.fillRect(x*80+100,y*80+100,30,30);
         }else{
             g.setColor(Color.BLACK);
-            g.fillRect(x*140+100,y*140+100,40,40);
+            g.fillRect(x*80+100,y*80+100,30,30);
         }
         Timur.schedule(tib,500);
         changeBlackorWhite(getBlackorWhite());
