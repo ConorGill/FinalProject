@@ -1,20 +1,27 @@
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
 import java.util.Arrays;
+import javax.swing.*;
 public class Main {
 
     public static void main(String[] args) {
-    int[] Qo=new int[23];
-    int[] woi=new int[]{2,3,4,5,1};
-    ArrayList<Integer> boo=new ArrayList<Integer>();
-    Scanner input = new Scanner(System.in);
-    System.out.println("What is your max carryweight?");
-    int z=input.nextInt();
-    Inventory I = new Inventory(z);
-    int x=12;
-    while(x!=6){
+        setLookAndFeel();
+        JFrame frame= new JFrame("JARPG");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JLabel label=new JLabel("Hallo");
+        frame.getContentPane().add(label);
+        frame.setSize(600,600);
+        frame.setMinimumSize(frame.getSize());
+        frame.setMaximumSize(frame.getSize());
+        frame.setResizable(false);
+        frame.pack();
+        frame.add(new Player(0,0));
+        frame.setVisible(true);
+
+        /*while(x!=6){
         System.out.println("------------------");
         System.out.println("1. Print inventory");
         System.out.println("2. Add random item");
@@ -24,6 +31,16 @@ public class Main {
         System.out.println("6. Exit");
         x=input.nextInt();
         I.doTheThing(x);
+        }*/
     }
+    //Thanks Lauren
+    private static boolean setLookAndFeel() {
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            return true;
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+                | UnsupportedLookAndFeelException e) {
+            return false;
+        }
     }
 }
