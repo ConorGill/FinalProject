@@ -1,4 +1,4 @@
-public class Campfire implements Tiles{
+public class Campfire extends Tile{
     public void Save(){ //creates a save
 
     }

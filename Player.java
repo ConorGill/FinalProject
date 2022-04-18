@@ -19,7 +19,7 @@ public class Player extends Tile{
         TimerTask tib=new Helper();
         if(BlackorWhite){
             g.setColor(Color.WHITE);
-            g.fillRect(x*80+100,y*80+100,30,30);
+            g.fillRect(x*80+100,y*80+100,60,60);
         }else{
             g.setColor(Color.BLACK);
             g.fillRect(x*80+100,y*80+100,30,30);

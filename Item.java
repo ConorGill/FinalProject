@@ -1,4 +1,3 @@
-
 //Class meant to represent a single item object
 public class Item {
     private ItemType type;
