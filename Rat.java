@@ -1,8 +1,10 @@
 
-public class Rat {
+public class Rat extends Monster{
     int health;
     int attack;
+    String name;
     public void rat(int health, int attack){
+        this.name = "rat";
         this.attack = attack;
         this.health = health;
     }
@@ -11,6 +13,9 @@ public class Rat {
     }
     public int getAttack(){
         return this.attack;
+    }
+    public String getName(){
+        return this.name;
     }
 
 }

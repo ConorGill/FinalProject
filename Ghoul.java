@@ -1,7 +1,9 @@
-public class Ghoul {
+public class Ghoul extends Monster{
     int health;
     int attack;
+    String name;
     public void ghoul(int health, int attack){
+        this.name = "ghoul";
         this.attack = attack;
         this.health = health;
     }
@@ -10,6 +12,9 @@ public class Ghoul {
     }
     public int getAttack(){
         return this.attack;
+    }
+    public String getName(){
+        return this.name;
     }
 
 }
