@@ -1,5 +1,5 @@
 
-public class Vampire {
+public class Vampire extends Monster{
     int health;
     int attack;
     String name;
