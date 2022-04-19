@@ -1,13 +1,7 @@
-
-public class Witch extends Monster{
+public class Monster {
     int health;
     int attack;
     String name;
-    public void witch(int health, int attack){
-        this.name = "witch";
-        this.attack = attack;
-        this.health = health;
-    }
     public int getHealth(){
         return this.health;
     }
@@ -17,5 +11,4 @@ public class Witch extends Monster{
     public String getName(){
         return this.name;
     }
-
 }
