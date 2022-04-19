@@ -1,4 +1,4 @@
-public class Ghoul {
+public class Ghoul extends Monster{
     int health;
     int attack;
     String name;
