@@ -1,5 +1,5 @@
 
-public class Rat {
+public class Rat extends Monster{
     int health;
     int attack;
     String name;
