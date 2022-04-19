@@ -1,4 +1,4 @@
-public class DireWolf {
+public class DireWolf extends Monster{
     int health;
     int attack;
     String name;
