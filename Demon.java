@@ -2,7 +2,9 @@
 public class Demon {
     int health;
     int attack;
+    String name;
     public void demon(int health, int attack){
+        this.name = "demon";
         this.attack = attack;
         this.health = health;
     }
@@ -11,6 +13,9 @@ public class Demon {
     }
     public int getAttack(){
         return this.attack;
+    }
+    public String getName(){
+        return this.name;
     }
 
 }
