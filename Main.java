@@ -12,15 +12,12 @@ public class Main {
         JFrame frame= new JFrame("JARPG");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(620,645);
-
         frame.setMinimumSize(frame.getSize());
         frame.setMaximumSize(frame.getSize());
         frame.setResizable(false);
+        frame.pack();;
         frame.add(new GUI());
-        frame.add(new Player(0,0));
-        frame.pack();
         frame.setVisible(true);
-
         /*while(x!=6){
         System.out.println("------------------");
         System.out.println("1. Print inventory");

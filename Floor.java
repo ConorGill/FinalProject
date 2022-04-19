@@ -1,21 +1,47 @@
-
+import javax.imageio.ImageIO;
+import java.io.*;
 import java.awt.*;
+import java.io.*;
 import java.util.*;
-public class Floor extends Tile{
+public class Floor extends GUI{
     private int Xcor;
     private int Ycor;
-    private boolean searched;
+    private boolean searched=false;
+    private TileType type=TileType.UnVisited;
+
     public Floor(int x,int y){
         Xcor=x;
         Ycor=y;
     }
+
     @Override
     public void paintComponent(Graphics g){
+        Image X=null;
+        if(searched){
+            try {
+                X = ImageIO.read(new File("./out/Images/XPixel.png"));
+            } catch (IOException e) {
+                System.out.println("Didn't find the file");
+            }
+            g.drawImage(X,Xcor*100+22,Ycor*100+22,null);
+        }
+    }
 
-        g.setColor(Color.BLACK);
-        g.fillRect(Xcor*80+100,Ycor*80+100,10,30);
-        g.fillRect(Xcor*80+110,Ycor*80+110,10,20);
-        g.fillRect(Xcor*80+120,Ycor*80+120,10,10);
-        revalidate();
+    public TileType getTileType(){
+        return type;
+    }
+
+    public void setSearched(boolean b){
+        this.searched=b;
+        if(b){
+            type=TileType.Visited;
+        }else{
+            type=TileType.UnVisited;
+        }
+    }
+
+    public void changePos(int x,int y){
+        Xcor=x;
+        Ycor=y;
     }
 }
