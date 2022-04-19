@@ -4,7 +4,7 @@ public class Rat {
     int attack;
     String name;
     public void rat(int health, int attack){
-        this.name = "rat"
+        this.name = "rat";
         this.attack = attack;
         this.health = health;
     }
