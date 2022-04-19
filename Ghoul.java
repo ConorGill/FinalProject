@@ -3,7 +3,7 @@ public class Ghoul {
     int attack;
     String name;
     public void ghoul(int health, int attack){
-        this.name = "ghoul"
+        this.name = "ghoul";
         this.attack = attack;
         this.health = health;
     }
