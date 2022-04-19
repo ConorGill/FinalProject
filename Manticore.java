@@ -1,5 +1,5 @@
 
-public class Manticore {
+public class Manticore extends Monster{
     int health;
     int attack;
     String name;
