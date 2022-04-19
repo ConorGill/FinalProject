@@ -2,8 +2,9 @@
 import java.util.Random;
 
 public class MonsterFactory {
+    //initial rng gen
     static Random random = new Random();
-
+    //picks a number limited by the level of the dungeon, this limits the pool to weaker monsters at first
     public static Monster create(int level) {
         int monsterLimit = level + 3;
         if (monsterLimit > 8) {
