@@ -7,18 +7,18 @@ public class GUI extends JComponent {
     private Campfire tempCamp;
     private Stairs tempStairs;
     private Player tempPlayer;
-    private Floor tempFloor;
-    private int pos,campPos,stairPos;
+    private Floor searchedFloor;
+    private int playerPos,campPos,stairPos;
     public GUI(){
     Random rng=new Random();
-    pos=rng.nextInt(36);
+    playerPos=rng.nextInt(36);
     campPos=rng.nextInt(36);
     stairPos=rng.nextInt(36);
-        while(campPos==pos || campPos==stairPos){
+        while(campPos==playerPos || campPos==stairPos){
             campPos=rng.nextInt(36);
         }
-        while(pos==stairPos || pos==campPos){
-           pos=rng.nextInt(36);
+        while(playerPos==stairPos || playerPos==campPos){
+           playerPos=rng.nextInt(36);
         }
 
     }
@@ -36,16 +36,15 @@ public class GUI extends JComponent {
             tiles[c]=new Floor(c%6,c/6);
             System.out.println("Boo"+c);
         }
-        tiles[pos]=new Player(pos%6,pos/6);
+        tiles[playerPos]=new Player(playerPos%6,playerPos/6);
         tiles[campPos]=new Campfire(campPos%6,campPos/6);
         tiles[stairPos]=new Stairs(stairPos%6,stairPos/6);
     }
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        setUpTiles();
         g.setColor(Color.BLACK);
-        g.fillRect(0,0,650,650);
+        g.fillRect(0,0,650,800);
         g.setColor(Color.WHITE);
         g.fillRect(0,0,5,600);
         for(int c=0;c<6;c++){
@@ -55,7 +54,17 @@ public class GUI extends JComponent {
         for(GUI goo:tiles){
             goo.paintComponent(g);
         }
-        new Player(0,0).paintComponent(g);
         revalidate();
+    }
+    public void movePlayer(int modifier){
+        tempPlayer= (Player) tiles[playerPos];
+        playerPos=playerPos+modifier;
+        if(tiles[playerPos].equals(TileType.Camp)){
+
+        }else if(tiles[playerPos].equals(TileType.Stairs)){
+
+        }else{
+
+        }
     }
 }

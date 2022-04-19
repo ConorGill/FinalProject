@@ -13,7 +13,11 @@ public class Floor extends GUI{
         Xcor=x;
         Ycor=y;
     }
-
+    public Floor(int x,int y,boolean discovered){
+        Xcor=x;
+        Ycor=y;
+        searched=discovered;
+    }
     @Override
     public void paintComponent(Graphics g){
         Image X=null;

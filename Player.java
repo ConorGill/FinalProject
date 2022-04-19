@@ -53,12 +53,21 @@ public class Player extends GUI{
         }
     }
 
-    public void setOnCampFire(boolean b){
-        onCampFire=b;
+    public void isOnCampFire(TileType Type){
+        if(Type.equals(TileType.Camp)){
+            onCampFire=true;
+        }else{
+            onCampFire=false;
+        }
+
     }
 
-    public void setOnStairs(boolean b){
-        onStairs=b;
+    public void istOnStairs(TileType Type){
+        if(Type.equals(TileType.Camp)){
+            onStairs=true;
+        }else{
+            onStairs=false;
+        }
     }
     public TileType getTileType(){
         return type;
