@@ -2,7 +2,9 @@
 public class Manticore {
     int health;
     int attack;
+    String name;
     public void manticore(int health, int attack){
+        this.name = "manticore";
         this.attack = attack;
         this.health = health;
     }
@@ -11,6 +13,9 @@ public class Manticore {
     }
     public int getAttack(){
         return this.attack;
+    }
+    public String getName(){
+        return this.name;
     }
 
 }
