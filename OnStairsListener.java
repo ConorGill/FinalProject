@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+//performs specific actions when a player is on a campfire tile versus other tiles
 public class OnStairsListener implements ActionListener {
     private static int totalLevels=0;
     private GUI goo;
