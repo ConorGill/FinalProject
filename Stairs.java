@@ -1,3 +1,4 @@
+//Class that creates stairs that allows for the player move between floors, extends GUI
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
@@ -9,7 +10,7 @@ public class Stairs extends GUI {
         Ycor=y;
     }
     @Override
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g){ //sets the color
         int XC=100;
         int YC=100;
         g.setColor(Color.WHITE);
@@ -20,11 +21,11 @@ public class Stairs extends GUI {
         g.fillRect(Xcor*XC+70,Ycor*YC+65,10,10);
         revalidate();
     }
-    public void changePos(int x,int y){
+    public void changePos(int x,int y){ //sets the position
         Xcor=x;
         Ycor=y;
     }
-    public TileType getTileType(){
+    public TileType getTileType(){ //gets the tile type
         return type;
     }
 }

@@ -1,3 +1,4 @@
+//decides x and y values and if the floor tile has been searched
 import javax.imageio.ImageIO;
 import java.io.*;
 import java.awt.*;
@@ -9,17 +10,17 @@ public class Floor extends GUI{
     private boolean searched=false;
     private TileType type=TileType.UnVisited;
 
-    public Floor(int x,int y){
+    public Floor(int x,int y){ //floor constructor
         Xcor=x;
         Ycor=y;
     }
-    public Floor(int x,int y,boolean discovered){
+    public Floor(int x,int y,boolean discovered){ //floor constructor
         Xcor=x;
         Ycor=y;
         setSearched(discovered);
     }
     @Override
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g){ //marks searched tiles
         Image X=null;
         if(searched){
             try {
@@ -31,11 +32,11 @@ public class Floor extends GUI{
         }
     }
 
-    public TileType getTileType(){
+    public TileType getTileType(){ //getter method that returns the file type
         return type;
     }
 
-    public void setSearched(boolean b){
+    public void setSearched(boolean b){ //sets the tile as visited or not
         this.searched=b;
         if(b){
             type=TileType.Visited;
@@ -44,7 +45,7 @@ public class Floor extends GUI{
         }
     }
 
-    public void changePos(int x,int y){
+    public void changePos(int x,int y){ //changes the current position
         Xcor=x;
         Ycor=y;
     }

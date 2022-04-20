@@ -1,4 +1,4 @@
-
+//Manages the users inventory
 import java.util.ArrayList;
 //Class responsible for managing the users inventory
 import java.util.Scanner;
