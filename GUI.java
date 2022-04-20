@@ -1,3 +1,4 @@
+//main GUI class decides the player, camp, and stairs position, extends JComponent
 import javax.swing.*;
 import javax.swing.*;
 import java.awt.*;
@@ -30,7 +31,7 @@ public class GUI extends JComponent {
     //I've tested Player inside GUI's paintComponent to so this is just this method
     //For whatever reason.
     //Perhaps it has something to do with threads or some other shit I don't know about.
-    public void setUpTiles(){
+    public void setUpTiles(){ //create the floors and tiles
         tiles=new GUI[36];
         for(int c=0;c<36;c++){
             tiles[c]=new Floor(c%6,c/6);
@@ -41,7 +42,7 @@ public class GUI extends JComponent {
         tiles[stairPos]=new Stairs(stairPos%6,stairPos/6);
     }
     @Override
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g){ //sets the colors
         super.paintComponent(g);
         g.setColor(Color.BLACK);
         g.fillRect(0,0,650,800);
@@ -56,7 +57,7 @@ public class GUI extends JComponent {
         }
         revalidate();
     }
-    public void movePlayer(int modifier){
+    public void movePlayer(int modifier){ //allows for the player to move
         tempPlayer= (Player) tiles[playerPos];
         playerPos=playerPos+modifier;
         if(tiles[playerPos].equals(TileType.Camp)){

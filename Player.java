@@ -1,3 +1,4 @@
+//checks the tile the player is on and the color
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.util.Date;
@@ -18,7 +19,7 @@ public class Player extends GUI{
         y=Y;
     }
     @Override
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g){ //sets the color
         long time_now,time_then;
         time_now= new Date().getTime();
         if(BlackorWhite){
@@ -41,11 +42,11 @@ public class Player extends GUI{
         revalidate();
         repaint();
     }
-    public boolean getBlackorWhite(){
+    public boolean getBlackorWhite(){ //getter method that returns the color
         return BlackorWhite;
     }
 
-    public void changeBlackorWhite(Boolean b){
+    public void changeBlackorWhite(Boolean b){ //changes the color
         if(b){
             BlackorWhite=false;
         }else{
@@ -53,7 +54,7 @@ public class Player extends GUI{
         }
     }
 
-    public void isOnCampFire(TileType Type){
+    public void isOnCampFire(TileType Type){ //checks if the user is on a campfire
         if(Type.equals(TileType.Camp)){
             onCampFire=true;
         }else{
@@ -62,14 +63,14 @@ public class Player extends GUI{
 
     }
 
-    public void istOnStairs(TileType Type){
+    public void istOnStairs(TileType Type){ //checks if the user is on the stairs
         if(Type.equals(TileType.Camp)){
             onStairs=true;
         }else{
             onStairs=false;
         }
     }
-    public TileType getTileType(){
+    public TileType getTileType(){ //returns the tile type the user is on
         return type;
     }
 }
