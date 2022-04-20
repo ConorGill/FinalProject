@@ -2,6 +2,7 @@ import javax.swing.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
+//renders tile data as a display
 public class GUI extends JComponent {
     private GUI[] tiles;
     private Campfire tempCamp;
@@ -24,14 +25,7 @@ public class GUI extends JComponent {
         }
 
     }
-    //Alright this is some spaghetti bullshit.
-    //For whoever is reading this for whatever reason this can't be written in the constructor
-    //I don't know why and I'm too tired to research it so here you go.
-    //Also for whatever reason Player stops flashing on and off again for some reason.
-    //I've tested it and it still works without it but for some reason not in this
-    //I've tested Player inside GUI's paintComponent to so this is just this method
-    //For whatever reason.
-    //Perhaps it has something to do with threads or some other shit I don't know about.
+    //Spawns player onto tiles, also determines tile positions
     public void setUpTiles(){
         tiles=new GUI[36];
         for(int c=0;c<36;c++){
@@ -59,6 +53,7 @@ public class GUI extends JComponent {
         revalidate();
         repaint();
     }
+    //moves the player based on desired input direction
     public void movePlayer(int modifier){
         previousPos=playerPos;
 
@@ -103,15 +98,18 @@ public class GUI extends JComponent {
 
 
     }
+    //gets player position
     public GUI getTile(){
         return tiles[playerPos];
     }
     public void setLevel(int x){
         level=x;
     }
+    //gets tile type of current tile
     public TileType getTileType(){
         return TileType.Visited;
     }
+    //returns tile that player was previously on
     public TileType getLastTile(){
         return lastTile;
     }
