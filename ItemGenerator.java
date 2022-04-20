@@ -7,25 +7,21 @@ public class ItemGenerator {
     private static final String[] armornames=new String[]{"Chain-mail","Brigantine","Leather Armor","Plate Armor","Rags","Leather Vest","Robes","Power Armor","Hot Dog Costume","Top Hat"};
     private static final String[] miscnames=new String[]{"Specs","Pocket Watch","Tobacco Pipe","Map","Telescope","Grappling Hook","Rope","Gold Bar","Crown","Necklace"};
     private static final String[] adjectives=new String[]{"Drab","Scruffy","Cool","Opulent","Crappy","Well Made","Shiny","Impressive","Awesome","Wack","Super","Stylish","Ugly","Brittle"};
+    private static double modifier;
     //generate an item
     public static Item generate(){
-        int weight = rng.nextInt(51);
+        int weight = rng.nextInt(20+5);
         int value=rng.nextInt(1001);
-        int strength=0;
+        int strength;
         ItemType type = null;
-        int Type=rng.nextInt(4);
+        int Type=rng.nextInt(3);
         if(Type==1){
             type=ItemType.Armor;
         }else if(Type==2){
             type=ItemType.Weapon;
-        }else{
-            type=ItemType.Misc;
         }
-        if(type==ItemType.Misc){
-            strength=0;
-        }else{
-            strength=rng.nextInt(26)+1;
-        }
+            strength= (int) (rng.nextInt(50)+1*modifier);
+
         String name=generateName(Type,weight,strength,value);
         Item I= new Item(type,weight,name,value,strength);
         return I;
@@ -81,5 +77,12 @@ public class ItemGenerator {
             }
         }
         return x;
+    }
+    public static void setModifier(double level){
+        double x=level/10;
+        if(level>8){
+            x=1.8;
+        }
+        modifier=x;
     }
 }

@@ -19,6 +19,9 @@ public class Player extends GUI{
     }
     @Override
     public void paintComponent(Graphics g){
+        g.setColor(Color.WHITE);
+        g.fillRect(x*100+22,y*100+22,60,60);
+        /* Unreliable as shit and I have no clue as to why.
         long time_now,time_then;
         time_now= new Date().getTime();
         if(BlackorWhite){
@@ -38,6 +41,8 @@ public class Player extends GUI{
             time_then=new Date().getTime();
         }
         changeBlackorWhite(BlackorWhite);
+         */
+
         revalidate();
         repaint();
     }
@@ -62,7 +67,7 @@ public class Player extends GUI{
 
     }
 
-    public void istOnStairs(TileType Type){
+    public void isOnStairs(TileType Type){
         if(Type.equals(TileType.Camp)){
             onStairs=true;
         }else{
@@ -71,5 +76,10 @@ public class Player extends GUI{
     }
     public TileType getTileType(){
         return type;
+    }
+
+    public void changePosition(int X,int Y){
+        x=X;
+        y=Y;
     }
 }

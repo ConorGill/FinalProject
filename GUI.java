@@ -8,7 +8,9 @@ public class GUI extends JComponent {
     private Stairs tempStairs;
     private Player tempPlayer;
     private Floor searchedFloor;
-    private int playerPos,campPos,stairPos;
+    private int playerPos,campPos,stairPos,previousPos;
+    private int level=0;
+    private TileType lastTile=null;
     public GUI(){
     Random rng=new Random();
     playerPos=rng.nextInt(36);
@@ -34,7 +36,7 @@ public class GUI extends JComponent {
         tiles=new GUI[36];
         for(int c=0;c<36;c++){
             tiles[c]=new Floor(c%6,c/6);
-            System.out.println("Boo"+c);
+            //System.out.println("Boo"+c);
         }
         tiles[playerPos]=new Player(playerPos%6,playerPos/6);
         tiles[campPos]=new Campfire(campPos%6,campPos/6);
@@ -55,16 +57,62 @@ public class GUI extends JComponent {
             goo.paintComponent(g);
         }
         revalidate();
+        repaint();
     }
     public void movePlayer(int modifier){
-        tempPlayer= (Player) tiles[playerPos];
-        playerPos=playerPos+modifier;
-        if(tiles[playerPos].equals(TileType.Camp)){
+        previousPos=playerPos;
 
-        }else if(tiles[playerPos].equals(TileType.Stairs)){
-
+        if(playerPos+modifier>35){
+            tempPlayer= (Player) tiles[playerPos];
+            playerPos=playerPos+modifier-36;
+        }else if(playerPos+modifier<0){
+            tempPlayer= (Player) tiles[playerPos];
+            playerPos=playerPos+modifier+36;
         }else{
-
+            tempPlayer= (Player) tiles[playerPos];
+            playerPos=playerPos+modifier;
         }
+        TileType currentTile=tiles[playerPos].getTileType();
+        tempPlayer.changePosition(playerPos%6,playerPos/6);
+        tempPlayer.isOnCampFire(currentTile);
+        tempPlayer.isOnStairs(currentTile);
+        if(lastTile==null){
+            tiles[playerPos]=new Floor(playerPos%6,playerPos/6,true);
+        }else if(lastTile.equals(TileType.Camp)){
+            tiles[previousPos]=tempCamp;
+        }else if(lastTile.equals(TileType.Stairs)){
+            tiles[previousPos]=tempStairs;
+        }else{
+            tiles[previousPos]=searchedFloor;
+        }
+
+
+        if(tiles[playerPos].getTileType().equals(TileType.Camp)){
+            lastTile=tiles[playerPos].getTileType();
+            tempCamp= (Campfire) tiles[playerPos];
+            tiles[playerPos]=tempPlayer;
+        }else if(tiles[playerPos].getTileType().equals(TileType.Stairs)){
+            lastTile=tiles[playerPos].getTileType();
+            tempStairs= (Stairs) tiles[playerPos];
+            tiles[playerPos]=tempPlayer;
+        }else{
+            lastTile=TileType.Visited;
+            searchedFloor= new Floor(playerPos%6,playerPos/6,true);
+            tiles[playerPos]=tempPlayer;
+        }
+
+
+    }
+    public GUI getTile(){
+        return tiles[playerPos];
+    }
+    public void setLevel(int x){
+        level=x;
+    }
+    public TileType getTileType(){
+        return TileType.Visited;
+    }
+    public TileType getLastTile(){
+        return lastTile;
     }
 }

@@ -27,6 +27,9 @@ public class Item {
     public int getWeight(){
         return this.weight;
     }
+    public String toString(){
+        return name;
+    }
     public int getStrength(){
         return this.strength;
     }

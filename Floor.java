@@ -16,7 +16,7 @@ public class Floor extends GUI{
     public Floor(int x,int y,boolean discovered){
         Xcor=x;
         Ycor=y;
-        searched=discovered;
+        setSearched(discovered);
     }
     @Override
     public void paintComponent(Graphics g){

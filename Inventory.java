@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Inventory {
     private ArrayList<Item> inv=new ArrayList<>();
-    private int carrycapacity;
+    private int carrycapacity=250;
     private Item equippedWeapon=null;
     private Item equippedArmor=null;
     //Constructor for the Inventory class
     Inventory(int CC){
-        this.carrycapacity=CC;
+        ;
     }
     //Method that lets me call a specific method in the class without having a messy if chain in the main block.
     public void doTheThing(int x){
@@ -149,5 +149,8 @@ public class Inventory {
         }else{
             System.out.println("You have nothing to drop!");
         }
+    }
+    public int getCarrycapacity(){
+        return carrycapacity;
     }
 }
