@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+//returns back to the dungeon screen after viewing the inventory screen
 public class goBackListener implements ActionListener {
    private JFrame frame;
    private Character Poob;
@@ -9,6 +9,7 @@ public class goBackListener implements ActionListener {
         frame=f;
         Poob=Ploob;
     }
+   //generates the needed buttons for the dungeon screen
     @Override
     public void actionPerformed(ActionEvent e) {
         frame.getContentPane().removeAll();
@@ -28,7 +29,6 @@ public class goBackListener implements ActionListener {
         frame.setMinimumSize(frame.getSize());
         frame.setMaximumSize(frame.getSize());
         frame.setResizable(false);
-        //Yeah I know it looks like ass but if fucking works.
         frame.getContentPane().add(goo);
         frame.getContentPane().add(up);
         frame.getContentPane().add(down);
