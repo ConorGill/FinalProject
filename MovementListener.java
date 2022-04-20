@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
+//reprints the floor after the player has moved, updating postions
 public class MovementListener implements ActionListener {
     private int modifier;
     private JFrame frame;
