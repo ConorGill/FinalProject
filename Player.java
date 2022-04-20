@@ -4,7 +4,7 @@ import java.util.Date;
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-
+//class for the player which holds their image and tile details
 public class Player extends GUI{
     private long last_time;
     private int x,y;
@@ -46,10 +46,11 @@ public class Player extends GUI{
         revalidate();
         repaint();
     }
+    //returns color of tile
     public boolean getBlackorWhite(){
         return BlackorWhite;
     }
-
+    //changes color of tile
     public void changeBlackorWhite(Boolean b){
         if(b){
             BlackorWhite=false;
@@ -57,7 +58,7 @@ public class Player extends GUI{
             BlackorWhite=true;
         }
     }
-
+    //checks if tile is campfire
     public void isOnCampFire(TileType Type){
         if(Type.equals(TileType.Camp)){
             onCampFire=true;
@@ -66,7 +67,7 @@ public class Player extends GUI{
         }
 
     }
-
+    //checks if tile is stairs
     public void isOnStairs(TileType Type){
         if(Type.equals(TileType.Camp)){
             onStairs=true;
@@ -74,10 +75,11 @@ public class Player extends GUI{
             onStairs=false;
         }
     }
+    //returns tile type
     public TileType getTileType(){
         return type;
     }
-
+    //changes position of player
     public void changePosition(int X,int Y){
         x=X;
         y=Y;
