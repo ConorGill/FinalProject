@@ -1,8 +1,10 @@
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.*;
+//class for a specific tile to rest on, also adds player health
 public class Campfire extends GUI{
 
+    //image for the campfire tile
     private final TileType type=TileType.Camp;
     private int Xcor,Ycor;
 
@@ -10,9 +12,11 @@ public class Campfire extends GUI{
         Xcor=x;
         Ycor=y;
     }
+    //creates a save file for the current game
     public void Save(){ //creates a save
 
     }
+    //catches if the file for the the campfire cannot be found (ex. has been deleted)
     @Override
     public void paintComponent(Graphics g){
         Image X=null;
