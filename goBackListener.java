@@ -18,10 +18,10 @@ public class goBackListener implements ActionListener {
         JButton left  =  new JButton("←");
         JButton right =  new JButton("→");
         GUI goo=Dungeon.getDungeon();
-        up.addActionListener(new MovementListener(-6,frame,goo));
-        down.addActionListener(new MovementListener(6,frame,goo));
-        left.addActionListener(new MovementListener(-1,frame,goo));
-        right.addActionListener(new MovementListener(1,frame,goo));
+        up.addActionListener(new MovementListener(-6,frame,goo,Poob));
+        down.addActionListener(new MovementListener(6,frame,goo,Poob));
+        left.addActionListener(new MovementListener(-1,frame,goo,Poob));
+        right.addActionListener(new MovementListener(1,frame,goo,Poob));
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.addWindowListener(new WindowEventHandler());

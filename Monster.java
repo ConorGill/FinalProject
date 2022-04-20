@@ -6,6 +6,9 @@ public class Monster {
     public int getHealth(){ //getter method that returns the monsters health
         return this.health;
     }
+    public void setHealth(int x){
+        this.health=x;
+    }
     public int getAttack(){ //getter method that returns the monsters attack strength
         return this.attack;
     }

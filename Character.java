@@ -31,6 +31,9 @@ public class Character {
     public void setAttack(int attack){
         this.attack = equippedWeapon.getStrength();
     }
+    public int getDefense(){
+        return defense;
+    }
 
     public void setDefense(int defense){
         this.defense = equippedArmor.getStrength();

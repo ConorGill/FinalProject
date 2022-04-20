@@ -18,8 +18,11 @@ public class OnStairsListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(goo.getLastTile().equals(TileType.Stairs)){
             GUI newgoo=new GUI();
+            newgoo.setUpTiles();
             newgoo.setLevel(totalLevels);
             Dungeon.storeDungeon(newgoo);
+            frame.getContentPane().removeAll();
+            Dungeon.makeDungeon(frame);
         }else{
             JOptionPane.showMessageDialog(frame,"You need to be on stairs to go down them ya dingus.");
         }

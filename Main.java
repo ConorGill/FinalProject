@@ -14,14 +14,14 @@ public class Main {
     public static void main(String[] args) {
         setLookAndFeel();
         checkDir();
-        Item deafultWeapon=new Item(ItemType.Weapon,0,"FIST",0,5);
-        Item deafultArmor=new Item(ItemType.Armor,1,"Rags",0,0);
+        Item deafultWeapon=new Item(ItemType.Weapon,0,"FIST",0,1000);
+        Item deafultArmor=new Item(ItemType.Armor,1,"Rags",0,1000);
 
         Character Poob=new Character(deafultWeapon,deafultArmor);
-
+        Dungeon.getPoob(Poob);
         JFrame frame= new JFrame("JARPG");
-        GUI goo=makeDungeon(frame);
-        setUpMenuBar(frame,Poob,goo);
+        Dungeon.storeDungeon(makeDungeon(frame,Poob));
+        setUpMenuBar(frame,Poob,Dungeon.getDungeon());
         frame.pack();
         frame.setVisible(true);
 
@@ -38,17 +38,17 @@ public class Main {
         }
     }
 
-    private static GUI makeDungeon(JFrame frame){
+    private static GUI makeDungeon(JFrame frame,Character Ploob){
         JButton up    =  new JButton("↑");
         JButton down  =  new JButton("↓");
         JButton left  =  new JButton("←");
         JButton right =  new JButton("→");
         GUI goo=new GUI();
         goo.setUpTiles();
-        up.addActionListener(new MovementListener(-6,frame,goo));
-        down.addActionListener(new MovementListener(6,frame,goo));
-        left.addActionListener(new MovementListener(-1,frame,goo));
-        right.addActionListener(new MovementListener(1,frame,goo));
+        up.addActionListener(new MovementListener(-6,frame,goo,Ploob));
+        down.addActionListener(new MovementListener(6,frame,goo,Ploob));
+        left.addActionListener(new MovementListener(-1,frame,goo,Ploob));
+        right.addActionListener(new MovementListener(1,frame,goo,Ploob));
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.addWindowListener(new WindowEventHandler());
@@ -98,7 +98,7 @@ public class Main {
         JMenuItem goBack=new JMenuItem("Go back to the Dungeon!",null);
         goBack.addActionListener(new goBackListener(frame,Poob));
         JMenuItem onStairs=new JMenuItem("Go Down the Stairs",null);
-
+        onStairs.addActionListener(new OnStairsListener(frame,goo));
         // add the action
 
         inventory.add(equipment);
@@ -107,6 +107,7 @@ public class Main {
         inventory.add(status);
         inventory.add(dropItem);
         dungeon.add(goBack);
+        dungeon.add(onStairs);
         // add file to the menubar
 
         menubar.add(inventory);
