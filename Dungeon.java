@@ -8,13 +8,13 @@ public class Dungeon {
         goo=goober;
 
     }
-    public static GUI getDungeon(){
+    public static GUI getDungeon(){ //getter method that returns the GUI of the dungeon
         return goo;
     }
-    public static void getPoob(Character Ploob){
+    public static void getPoob(Character Ploob){ //getter method that returns the character
         Poob=Ploob;
     }
-    public static void makeDungeon(JFrame frame){
+    public static void makeDungeon(JFrame frame){ //creates the dungeon
         JButton up    =  new JButton("↑");
         JButton down  =  new JButton("↓");
         JButton left  =  new JButton("←");

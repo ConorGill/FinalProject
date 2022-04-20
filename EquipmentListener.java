@@ -2,21 +2,21 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+//Used for the equipment screen to work
 public class EquipmentListener implements ActionListener {
     private JFrame frame;
     private int counter=0;
     private Character Poob;
     private final int padington=25;
     private GUI goo;
-    public EquipmentListener(JFrame f,Character Ploob,GUI gui){
+    public EquipmentListener(JFrame f,Character Ploob,GUI gui){ //Constructor that sets the frame, character and GUI
         frame=f;
         Poob=Ploob;//https://www.youtube.com/watch?v=UNSPeyf_DN0&t=685s
         goo=gui;
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) { //Adds layer to equipment screen that allows for items to be displayed.
         frame.getContentPane().removeAll();
         Dungeon.storeDungeon(goo);
         frame.add(new EquipmentScreen());
@@ -54,7 +54,7 @@ public class EquipmentListener implements ActionListener {
         frame.pack();
     }
 
-    private void nextPage(ActionEvent actionEvent) {
+    private void nextPage(ActionEvent actionEvent) { //goes to the next page in the inventory
         if(Poob.getInventory().size()<(counter+1)*60){
             JOptionPane.showMessageDialog(frame,"No more items left.");
         }else{
@@ -64,7 +64,7 @@ public class EquipmentListener implements ActionListener {
 
     }
 
-    private void lastPage(ActionEvent actionEvent) {
+    private void lastPage(ActionEvent actionEvent) { //goes to the previous page in the inventory
         if((counter-1)*60<0){
             JOptionPane.showMessageDialog(frame,"Can't go back.");
         }else{
@@ -72,7 +72,7 @@ public class EquipmentListener implements ActionListener {
             draw();
         }
     }
-    public void draw(){
+    public void draw(){ //prints the items to the screen
         Boolean b=false;
         frame.getContentPane().removeAll();
         Dungeon.storeDungeon(goo);

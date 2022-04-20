@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
+//Allows for armor to be equipped extends ActionListener
 public class EquipArmorListener implements ActionListener {
     private JFrame frame;
     private int counter=0;
@@ -11,14 +11,14 @@ public class EquipArmorListener implements ActionListener {
     private final int padington=16;
     private ArrayList<Integer> indices;
     private GUI goo;
-    public EquipArmorListener(JFrame f,Character Ploob,GUI gui){
-        frame=f;
+    public EquipArmorListener(JFrame f,Character Ploob,GUI gui){ //Constructor that sets the frame, character and GUI.
+        frame=f; //Maybe remove the link below lol
         Poob=Ploob;//https://www.youtube.com/watch?v=UNSPeyf_DN0&t=685s
         goo=gui;
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) { //adds layer to frame for armor
         frame.getContentPane().removeAll();
         Dungeon.storeDungeon(goo);
         int visibleCount=0;
@@ -62,12 +62,12 @@ public class EquipArmorListener implements ActionListener {
         frame.pack();
     }
 
-    private void EquipArmor(ActionEvent actionEvent) {
+    private void EquipArmor(ActionEvent actionEvent) { //Equips the armor
         int getArmor= Integer.parseInt(JOptionPane.showInputDialog(frame,"Enter in the number of your desired piece of Armor"))-1;
         Poob.equipArmor(indices.get(getArmor));
     }
 
-    private void nextPage(ActionEvent actionEvent) {
+    private void nextPage(ActionEvent actionEvent) { //goes to the next page in the inventory
         if(Poob.getInventory().size()<(counter+1)*60){
             JOptionPane.showMessageDialog(frame,"No more items left.");
         }else{
@@ -76,7 +76,7 @@ public class EquipArmorListener implements ActionListener {
 
     }
 
-    private void lastPage(ActionEvent actionEvent) {
+    private void lastPage(ActionEvent actionEvent) { //goes to the previous page in the inventory
         if((counter-1)*60<0){
             JOptionPane.showMessageDialog(frame,"Can't go back.");
         }else{

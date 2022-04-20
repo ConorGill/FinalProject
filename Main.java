@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.Arrays;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicArrowButton;
-
+//Main class, creates main JFrame and visuals
 public class Main {
 //↑ ↓ ← →
     public static void main(String[] args) {
@@ -28,7 +28,7 @@ public class Main {
 
     }
     //Thanks Lauren
-    private static boolean setLookAndFeel() {
+    private static boolean setLookAndFeel() { //sets appearance
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             return true;
@@ -38,7 +38,7 @@ public class Main {
         }
     }
 
-    private static GUI makeDungeon(JFrame frame,Character Ploob){
+    private static GUI makeDungeon(JFrame frame,Character Ploob){ //creates dungeon
         JButton up    =  new JButton("↑");
         JButton down  =  new JButton("↓");
         JButton left  =  new JButton("←");
@@ -64,7 +64,7 @@ public class Main {
         frame.getContentPane().add(right);
         return goo;
     }
-    private static void setUpMenuBar(JFrame frame,Character Poob,GUI goo){
+    private static void setUpMenuBar(JFrame frame,Character Poob,GUI goo){ //adds the menu bar to the top of the window
         JMenuBar menubar = new JMenuBar();
 
         // add the file menu
@@ -116,7 +116,7 @@ public class Main {
         // add the menubar to the window
         frame.setJMenuBar(menubar);
     }
-    private static void checkDir(){
+    private static void checkDir(){ //checks the directory
         boolean doesSaveExist=new File("./Images").exists();
         if(!doesSaveExist){
             new File("./Saves").mkdir();

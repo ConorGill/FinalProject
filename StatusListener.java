@@ -10,7 +10,7 @@ public class StatusListener implements ActionListener {
         Poob=Ploob;
     }
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) { //shows change in equipment and character stats
         JOptionPane.showMessageDialog(frame,"Health:"+Poob.getHealth()+"\nCarry Capacity:"+Poob.getLoad()
                 +"\nWeapon:"+Poob.getEquippedWeapon()+"\nArmor:"+Poob.getEquippedArmor()
                 +"\nATK:"+Poob.getEquippedWeapon().getStrength()

@@ -2,20 +2,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+//allows items to be dropped and picked up by the user, extends ActonListener
 public class DropItemListener implements ActionListener {
     private Character Poob;
     private JFrame frame;
     private int counter;
     private int padington=16;
     private GUI goo;
-    public DropItemListener(JFrame F,Character Ploob,GUI gui){
+    public DropItemListener(JFrame F,Character Ploob,GUI gui){ //constructor that sets a frame, character, and the gui.
         frame=F;
         Poob=Ploob;
         goo=gui;
     }
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) { //Adds drop screen for inventory
         Boolean b=false;
         frame.getContentPane().removeAll();
         Dungeon.storeDungeon(goo);
@@ -63,12 +63,12 @@ public class DropItemListener implements ActionListener {
         frame.add(inventoryLines);
     }
 
-    private void dropItem(ActionEvent actionEvent) {
+    private void dropItem(ActionEvent actionEvent) { //drops an item
         int getItem= Integer.parseInt(JOptionPane.showInputDialog(frame,"Enter in the number of the item you want to drop"))-1;
         Poob.removeItem(getItem);
     }
 
-    private void nextPage(ActionEvent actionEvent) {
+    private void nextPage(ActionEvent actionEvent) { //goes to the next page of inventory
         if(Poob.getInventory().size()<(counter+1)*60){
             JOptionPane.showMessageDialog(frame,"No more items left.");
         }else{
@@ -78,7 +78,7 @@ public class DropItemListener implements ActionListener {
 
     }
 
-    private void lastPage(ActionEvent actionEvent) {
+    private void lastPage(ActionEvent actionEvent) { //goes to the previous page of the inventory
         if((counter-1)*60<0){
             JOptionPane.showMessageDialog(frame,"Can't go back.");
         }else{
@@ -86,7 +86,7 @@ public class DropItemListener implements ActionListener {
             draw();
         }
     }
-    public void draw(){
+    public void draw(){ //prints items
         Boolean b=false;
         frame.getContentPane().removeAll();
         Dungeon.storeDungeon(goo);

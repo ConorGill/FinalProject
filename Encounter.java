@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.util.Random;
+//Decides the encounters with the monsters and fights
 public class Encounter {
     private  int level=OnStairsListener.getTotalLevels();
     private  Character Poob;
@@ -13,7 +14,7 @@ public class Encounter {
 
 
 
-    public void foight(){
+    public void foight(){ //simulates a fight between the player and monster
 
             Random rng =new Random();
             double chance=rng.nextDouble();
