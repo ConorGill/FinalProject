@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+//shows dialogue boxes when there is a change in status
 public class StatusListener implements ActionListener {
     private Character Poob;
     private JFrame frame;
