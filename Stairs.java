@@ -21,10 +21,12 @@ public class Stairs extends GUI {
         g.fillRect(Xcor*XC+70,Ycor*YC+65,10,10);
         revalidate();
     }
+    //changes postion of stairs
     public void changePos(int x,int y){ //sets the position
         Xcor=x;
         Ycor=y;
     }
+    //returns tile type
     public TileType getTileType(){ //gets the tile type
         return type;
     }
